@@ -1,0 +1,360 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Claude Code 사내 교육 슬라이드</title>
+  <style>
+    :root {
+      --accent: #CC785C;
+      --dark: #1F2937;
+      --gray: #6B7280;
+      --light-gray: #F3F4F6;
+      --border: #E5E7EB;
+      --bg: #FAFAF9;
+    }
+    * { box-sizing: border-box; }
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Pretendard, 'Apple SD Gothic Neo', 'Malgun Gothic', sans-serif;
+      margin: 0;
+      padding: 0;
+      background: var(--bg);
+      color: var(--dark);
+      line-height: 1.6;
+    }
+    header {
+      background: linear-gradient(135deg, var(--dark) 0%, #374151 100%);
+      color: white;
+      padding: 64px 32px;
+      border-bottom: 4px solid var(--accent);
+    }
+    header .wrap {
+      max-width: 1100px;
+      margin: 0 auto;
+    }
+    header h1 {
+      margin: 0 0 12px;
+      font-size: 40px;
+      font-weight: 700;
+      color: white;
+    }
+    header h1 .accent { color: var(--accent); }
+    header p {
+      margin: 0;
+      font-size: 18px;
+      color: #D1D5DB;
+      max-width: 720px;
+    }
+    header .meta {
+      margin-top: 24px;
+      font-size: 14px;
+      color: #9CA3AF;
+      display: flex;
+      gap: 24px;
+      flex-wrap: wrap;
+    }
+    header .meta span::before {
+      content: "•";
+      color: var(--accent);
+      margin-right: 8px;
+    }
+    main {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 48px 32px;
+    }
+    h2 {
+      font-size: 24px;
+      margin: 48px 0 16px;
+      padding-bottom: 8px;
+      border-bottom: 2px solid var(--accent);
+      color: var(--dark);
+    }
+    h2:first-of-type { margin-top: 0; }
+    .section-desc {
+      color: var(--gray);
+      margin: 0 0 24px;
+      font-size: 15px;
+    }
+    .chapters {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+      gap: 16px;
+    }
+    .chapter {
+      display: block;
+      padding: 20px;
+      background: white;
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      text-decoration: none;
+      color: var(--dark);
+      transition: all 0.15s ease;
+    }
+    .chapter:hover {
+      border-color: var(--accent);
+      transform: translateY(-2px);
+      box-shadow: 0 8px 20px rgba(204, 120, 92, 0.12);
+    }
+    .chapter .num {
+      display: inline-block;
+      font-size: 13px;
+      font-weight: 700;
+      color: var(--accent);
+      letter-spacing: 0.5px;
+    }
+    .chapter .title {
+      margin: 6px 0 0;
+      font-size: 16px;
+      font-weight: 600;
+    }
+    .chapter .desc {
+      margin: 10px 0 0;
+      font-size: 13px;
+      color: var(--gray);
+      line-height: 1.5;
+    }
+    .group-label {
+      display: inline-block;
+      font-size: 11px;
+      font-weight: 700;
+      color: var(--gray);
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      margin-bottom: 8px;
+    }
+    .usage {
+      background: white;
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      padding: 24px;
+      margin-top: 16px;
+    }
+    .usage h3 {
+      margin: 0 0 12px;
+      font-size: 17px;
+      color: var(--accent);
+    }
+    .usage p {
+      margin: 0 0 8px;
+      font-size: 14px;
+      color: var(--dark);
+    }
+    .usage code {
+      background: var(--light-gray);
+      padding: 2px 6px;
+      border-radius: 4px;
+      font-size: 13px;
+    }
+    .usage ul {
+      margin: 8px 0 0;
+      padding-left: 20px;
+    }
+    .usage ul li {
+      font-size: 14px;
+      margin-bottom: 4px;
+    }
+    footer {
+      max-width: 1100px;
+      margin: 48px auto 24px;
+      padding: 24px 32px;
+      color: var(--gray);
+      font-size: 13px;
+      border-top: 1px solid var(--border);
+    }
+    footer a {
+      color: var(--accent);
+      text-decoration: none;
+    }
+    footer a:hover { text-decoration: underline; }
+    .tip {
+      background: #FEF3C7;
+      border-left: 4px solid #F59E0B;
+      padding: 12px 16px;
+      border-radius: 4px;
+      font-size: 14px;
+      margin: 16px 0;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="wrap">
+      <h1>Claude Code <span class="accent">사내 교육</span> 슬라이드</h1>
+      <p>Claude Code 공식 한글 문서(Ch.01~20)를 실무자용 강의 슬라이드로 재구성한 자료입니다. 챕터를 클릭하면 브라우저에서 바로 슬라이드가 시작됩니다.</p>
+      <div class="meta">
+        <span>총 20개 챕터</span>
+        <span>Marp로 빌드</span>
+        <span>방향키 / 스페이스로 이동</span>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <h2>1부 · 소개</h2>
+    <p class="section-desc">Claude Code가 무엇이며 어떻게 시작하는가.</p>
+    <div class="chapters">
+      <a class="chapter" href="slides/01-introduction.html">
+        <span class="num">CH.01</span>
+        <div class="title">소개</div>
+        <div class="desc">Claude Code의 본질, 6가지 핵심 역량, 권한 모드, 메모리 시스템, 인증 방식.</div>
+      </a>
+      <a class="chapter" href="slides/02-quickstart.html">
+        <span class="num">CH.02</span>
+        <div class="title">빠른 시작</div>
+        <div class="desc">5분 온보딩 — 설치 → 인증 → 세션 → /init. 핵심 슬래시 커맨드 7종.</div>
+      </a>
+      <a class="chapter" href="slides/03-installation.html">
+        <span class="num">CH.03</span>
+        <div class="title">설치 상세</div>
+        <div class="desc">macOS · Linux · WSL 플랫폼별 설치, npm prefix 문제, 트러블슈팅 6종.</div>
+      </a>
+    </div>
+
+    <h2>2부 · 핵심 개념</h2>
+    <p class="section-desc">Claude Code가 어떻게 생각하고 행동하는가.</p>
+    <div class="chapters">
+      <a class="chapter" href="slides/04-how-it-works.html">
+        <span class="num">CH.04</span>
+        <div class="title">작동 원리</div>
+        <div class="desc">에이전틱 루프 6단계, 컨텍스트 조립, 도구 실행 모델, 서브에이전트.</div>
+      </a>
+      <a class="chapter" href="slides/05-memory-context.html">
+        <span class="num">CH.05</span>
+        <div class="title">메모리와 컨텍스트</div>
+        <div class="desc">CLAUDE.md 4단계 계층, 발견 알고리즘, @include, 경로 기반 규칙.</div>
+      </a>
+      <a class="chapter" href="slides/06-permissions.html">
+        <span class="num">CH.06</span>
+        <div class="title">권한 시스템</div>
+        <div class="desc">4개 모드 비교, allow/deny 규칙, Bash 패턴 매칭, MCP 권한.</div>
+      </a>
+      <a class="chapter" href="slides/07-tools.html">
+        <span class="num">CH.07</span>
+        <div class="title">도구 목록</div>
+        <div class="desc">파일·셸·검색·웹·에이전트·MCP·노트북 내장 도구 전체 레퍼런스.</div>
+      </a>
+    </div>
+
+    <h2>3부 · 설정</h2>
+    <p class="section-desc">프로젝트와 팀 환경 맞추기.</p>
+    <div class="chapters">
+      <a class="chapter" href="slides/08-claude-md-config.html">
+        <span class="num">CH.08</span>
+        <div class="title">CLAUDE.md 설정</div>
+        <div class="desc">포함/제외 기준, 파일 위치, @include, TypeScript 실전 예시, /init.</div>
+      </a>
+      <a class="chapter" href="slides/09-env-vars.html">
+        <span class="num">CH.09</span>
+        <div class="title">환경 변수</div>
+        <div class="desc">인증·경로·모델·동작·리소스·관찰 가능성 환경 변수 전체.</div>
+      </a>
+      <a class="chapter" href="slides/10-settings.html">
+        <span class="num">CH.10</span>
+        <div class="title">설정 파일</div>
+        <div class="desc">settings.json 4개 범위, 우선순위, 핵심 필드, Managed 잠금.</div>
+      </a>
+    </div>
+
+    <h2>4부 · 가이드</h2>
+    <p class="section-desc">실전에서 Claude Code 역량 확장하기.</p>
+    <div class="chapters">
+      <a class="chapter" href="slides/11-authentication.html">
+        <span class="num">CH.11</span>
+        <div class="title">인증</div>
+        <div class="desc">OAuth · API Key · Bedrock · Vertex 설정, 토큰 갱신, 우선순위.</div>
+      </a>
+      <a class="chapter" href="slides/12-hooks.html">
+        <span class="num">CH.12</span>
+        <div class="title">훅</div>
+        <div class="desc">도구 이벤트 자동화, 종료 코드 시맨틱, 4가지 훅 타입, 실전 예시.</div>
+      </a>
+      <a class="chapter" href="slides/13-mcp-servers.html">
+        <span class="num">CH.13</span>
+        <div class="title">MCP 서버</div>
+        <div class="desc">외부 도구 연결, stdio/HTTP/SSE, 범위, 서버 관리, 문제 해결.</div>
+      </a>
+      <a class="chapter" href="slides/14-multi-agent.html">
+        <span class="num">CH.14</span>
+        <div class="title">멀티에이전트</div>
+        <div class="desc">서브에이전트 스폰, 병렬화, worktree 격리, 효과적 프롬프트.</div>
+      </a>
+      <a class="chapter" href="slides/15-skills.html">
+        <span class="num">CH.15</span>
+        <div class="title">스킬</div>
+        <div class="desc">재사용 가능한 /skill-name 워크플로우, 프론트매터, 인라인 셸.</div>
+      </a>
+    </div>
+
+    <h2>5부 · 레퍼런스</h2>
+    <p class="section-desc">세부 스펙을 찾을 때 참고.</p>
+    <div class="chapters">
+      <a class="chapter" href="slides/16-commands-overview.html">
+        <span class="num">CH.16</span>
+        <div class="title">커맨드 개요</div>
+        <div class="desc">CLI 플래그 vs 슬래시 커맨드, 키보드 단축키, 서브커맨드.</div>
+      </a>
+      <a class="chapter" href="slides/17-cli-flags.html">
+        <span class="num">CH.17</span>
+        <div class="title">CLI 플래그</div>
+        <div class="desc">모든 옵션 상세, 세션 계속, 권한, 컨텍스트, 출력 제어, 실전 조합.</div>
+      </a>
+      <a class="chapter" href="slides/18-slash-commands.html">
+        <span class="num">CH.18</span>
+        <div class="title">슬래시 커맨드</div>
+        <div class="desc">세션 내 17종 커맨드 전체 레퍼런스와 조합 패턴.</div>
+      </a>
+      <a class="chapter" href="slides/19-hooks-reference.html">
+        <span class="num">CH.19</span>
+        <div class="title">훅 레퍼런스</div>
+        <div class="desc">모든 이벤트·입력·출력·종료 코드, 비동기 훅 제약.</div>
+      </a>
+      <a class="chapter" href="slides/20-sdk.html">
+        <span class="num">CH.20</span>
+        <div class="title">SDK 개요</div>
+        <div class="desc">stdin/stdout 제어 프로토콜, 메시지 타입, IDE/CI 통합 패턴.</div>
+      </a>
+    </div>
+
+    <h2>사용법</h2>
+    <div class="usage">
+      <h3>슬라이드 탐색</h3>
+      <ul>
+        <li>오른쪽 화살표 또는 스페이스바: 다음 슬라이드</li>
+        <li>왼쪽 화살표: 이전 슬라이드</li>
+        <li><code>F</code>: 전체화면 (Marp HTML)</li>
+        <li><code>ESC</code>: 전체화면 종료</li>
+      </ul>
+    </div>
+    <div class="usage">
+      <h3>소스와 다른 포맷</h3>
+      <p>이 사이트는 Marp Markdown을 HTML로 빌드한 결과입니다.</p>
+      <ul>
+        <li><strong>Marp Markdown 소스</strong>: <code>slides/marp/*.md</code> — 저장소에서 직접 편집 가능</li>
+        <li><strong>Google Apps Script</strong>: <code>slides/apps-script/*.gs</code> — script.google.com에서 실행하면 동일한 내용을 Google Slides로 직접 생성</li>
+        <li><strong>README</strong>: <code>slides/README.md</code> — 포맷별 상세 사용법</li>
+      </ul>
+    </div>
+    <div class="tip">
+      <strong>💡 PPTX 필요하시면:</strong>
+      로컬에 <code>npm install -g @marp-team/marp-cli</code> 후 <code>marp slides/marp/01-introduction.md -o ch01.pptx</code> 로 변환 가능합니다.
+    </div>
+
+    <h2>사내 교육 운영 제안</h2>
+    <div class="usage">
+      <ul>
+        <li><strong>1회차 (핵심 기반 · 2h)</strong>: Ch.01, 02, 04, 06 — 개념 + 실습 온보딩</li>
+        <li><strong>2회차 (설정과 메모리 · 1.5h)</strong>: Ch.05, 08, 10</li>
+        <li><strong>3회차 (자동화 · 2h)</strong>: Ch.12, 15, 19</li>
+        <li><strong>4회차 (고급 통합 · 1.5h)</strong>: Ch.13, 14, 20</li>
+        <li><strong>레퍼런스 자료</strong>: Ch.03, 07, 09, 11, 16, 17, 18</li>
+      </ul>
+    </div>
+  </main>
+
+  <footer>
+    원문 출처: <a href="https://github.com/ksangki/claude-code-docs">Claude Code 공식 문서 한국어 번역</a>
+    · 빌드: Marp CLI · 교육용 재구성
+  </footer>
+</body>
+</html>
